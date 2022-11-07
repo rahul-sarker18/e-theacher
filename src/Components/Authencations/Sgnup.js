@@ -1,17 +1,38 @@
-import React from 'react';
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import {updateProfile} from "firebase/auth"
+import { AuthContext } from "../Context/Usercontext";
 
 const Sgnup = () => {
+  const { user ,auth , signupEmail} = useContext(AuthContext);
+
+
+//sign up email and password fild
+  const handelsignup=(event)=>{
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+   
+    signupEmail(email , password)
+    .then(res =>{
+      const user = res.user;
+      console.log(user);
+      updateProfile(auth.currentUser, {
+        displayName: name , photoURL: "https://i.ibb.co/ZJnwZhP/no.png"
+      })
+      form.reset()
+    })
+    .catch(e => {console.error(e)})
+  }
+
   return (
     <div className="w-full max-w-md p-8 mx-auto my-6 shadow-lg shadow-blue-500/50  space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
       <h1 className="text-2xl font-bold text-center">Sign up</h1>
-      <form
-        novalidate=""
-        action=""
-        className="space-y-6 ng-untouched ng-pristine ng-valid"
-      >
+      <form onSubmit={handelsignup} className="space-y-6 ng-untouched ng-pristine ng-valid">
         <div className="space-y-1 text-sm">
-          <label for="username" className="block dark:text-gray-400">
+          <label htmlFor="username" className="block dark:text-gray-400">
             Name
           </label>
           <input
@@ -23,19 +44,19 @@ const Sgnup = () => {
           />
         </div>
         <div className="space-y-1 text-sm">
-          <label for="email" className="block dark:text-gray-400">
+          <label htmlFor="email" className="block dark:text-gray-400">
             Email
           </label>
           <input
-            type="text"
-            name="name"
+            type="email"
+            name="email"
             id="email"
             placeholder="email"
             className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-100 dark:text-gray-900 focus:dark:border-blue-400"
           />
         </div>
         <div className="space-y-1 text-sm">
-          <label for="password" className="block dark:text-gray-400">
+          <label htmlFor="password" className="block dark:text-gray-400">
             Password
           </label>
           <input
@@ -66,7 +87,7 @@ const Sgnup = () => {
         </button>
       </div>
       <p className="text-xs text-center sm:px-6 dark:text-gray-400">
-         Have an account?
+        Have an account?
         <Link
           to="/login"
           rel="noopener noreferrer"

@@ -1,41 +1,61 @@
-import React from 'react';
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Context/Usercontext";
 
 const Header = () => {
+  const { user, signoutff } = useContext(AuthContext);
+
+  const handelsignout = () => {
+    signoutff()
+      .then(() => {})
+      .catch(() => {});
+  };
+
   return (
     <div className="navbar bg-base-300 p-4 rounded-xl  shadow-lg shadow-indigo-500/50  ">
       <div className="navbar-start">
-        <Link to='/' className="btn btn-ghost normal-case text-xl">daisyUI</Link>
+        <Link to="/" className="btn btn-ghost normal-case text-xl">
+          daisyUI
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li>
-            <NavLink to='/home'>Home</NavLink>
+            <NavLink to="/home">Home</NavLink>
           </li>
 
           <li>
-            <NavLink to='/services'>Searvise</NavLink>
+            <NavLink to="/services">Searvise</NavLink>
           </li>
           <li>
-            <NavLink to='/revew'>Revew</NavLink>
+            <NavLink to="/revew">Revew</NavLink>
           </li>
           <li>
-            <NavLink to='/bolg'>Blog</NavLink>
+            <NavLink to="/bolg">Blog</NavLink>
           </li>
-          <li>
-            <NavLink to='/login'>Log in</NavLink>
-          </li>
-          <li>
-            <NavLink to='/signup'>Sign up</NavLink>
-          </li>
+          {user?.uid ? (
+            <li>
+              <button onClick={handelsignout} type="link">
+                Sign out
+              </button>
+            </li>
+          ) : (
+            <>
+              <li>
+                <NavLink to="/login">Log in</NavLink>
+              </li>
+              <li>
+                <NavLink to="/signup">Sign up</NavLink>
+              </li>
+            </>
+          )}
         </ul>
       </div>
 
       {/* responive manu  */}
-     
 
       <div className="navbar-end gap-4">
-      <div className="dropdown dropdown-end">
+        <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +85,20 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <NavLink className="btn">Get started</NavLink>
+
+        {user?.uid ? (
+          <div className="avatar online">
+            <Link to="/profile">
+              <div className="w-12 h-12 rounded-full">
+                <img
+                  src={user?.photoURL}
+                  className="rounded-full border border-red-600"
+                  alt="no img"
+                />
+              </div>
+            </Link>
+          </div>
+        ) : undefined}
       </div>
     </div>
   );

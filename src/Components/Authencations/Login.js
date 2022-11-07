@@ -1,17 +1,41 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
+import { AuthContext } from '../Context/Usercontext';
 
 const Login = () => {
+
+  const {signinemail} =useContext(AuthContext);
+
+
+  const handellogin=event =>{
+    event.preventDefault();
+    const form =event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email , password);
+
+    signinemail(email , password)
+    .then(res => {
+      const user = res.user;
+      console.log(user);
+      form.reset();
+    })
+    .catch(e => {
+      console.error(e);
+    })
+
+  }
+
   return (
     <div className="w-full max-w-md p-8 mx-auto my-6 shadow-lg shadow-blue-500/50  space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
       <h1 className="text-2xl font-bold text-center">Log in</h1>
-      <form className="space-y-6 ng-untouched ng-pristine ng-valid">
+      <form onSubmit={handellogin} className="space-y-6 ng-untouched ng-pristine ng-valid">
         <div className="space-y-1 text-sm">
-          <label for="email" className="block dark:text-gray-400">
+          <label htmlFor="email" className="block dark:text-gray-400">
             Email
           </label>
           <input
-            type="text"
+            type="email"
             name="name"
             id="email"
             placeholder="email"
@@ -19,7 +43,7 @@ const Login = () => {
           />
         </div>
         <div className="space-y-1 text-sm">
-          <label for="password" className="block dark:text-gray-400">
+          <label htmlFor="password" className="block dark:text-gray-400">
             Password
           </label>
           <input
