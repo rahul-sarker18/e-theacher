@@ -1,20 +1,32 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-300 p-4 rounded-xl  shadow-lg shadow-indigo-500/50  ">
       <div className="navbar-start">
-        <NavLink className="btn btn-ghost normal-case text-xl">daisyUI</NavLink>
+        <Link to='/' className="btn btn-ghost normal-case text-xl">daisyUI</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li>
-            <NavLink>Item 1</NavLink>
+            <NavLink to='/home'>Home</NavLink>
           </li>
 
           <li>
-            <NavLink>Item 3</NavLink>
+            <NavLink to='/services'>Searvise</NavLink>
+          </li>
+          <li>
+            <NavLink to='/revew'>Revew</NavLink>
+          </li>
+          <li>
+            <NavLink to='/bolg'>Blog</NavLink>
+          </li>
+          <li>
+            <NavLink to='/login'>Log in</NavLink>
+          </li>
+          <li>
+            <NavLink to='/signup'>Sign up</NavLink>
           </li>
         </ul>
       </div>
