@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import {updateProfile} from "firebase/auth"
 import { AuthContext } from "../Context/Usercontext";
+import { FcGoogle } from "react-icons/fc";
 
 const Sgnup = () => {
-  const { user ,auth , signupEmail} = useContext(AuthContext);
+  const {auth , signupEmail , signupgoogle} = useContext(AuthContext);
 
 
 //sign up email and password fild
@@ -25,6 +26,14 @@ const Sgnup = () => {
       form.reset()
     })
     .catch(e => {console.error(e)})
+  }
+
+   //google
+
+   const handelgoogle=()=>{
+    signupgoogle()
+    .then(res => {console.log(res.user);})
+    .catch(e => {console.log(e);})
   }
 
   return (
@@ -79,8 +88,8 @@ const Sgnup = () => {
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
       </div>
       <div className="flex justify-center space-x-4">
-        <button aria-label="Log in with Google" className="p-3 rounded-sm">
-          google
+      <button aria-label="Log in with Google" onClick={handelgoogle} className="p-3 text-4xl rounded-sm">
+          <FcGoogle className='hover:border-2 hover:rounded-sm'/>
         </button>
         <button aria-label="Log in with Twitter" className="p-3 rounded-sm">
           google

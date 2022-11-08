@@ -1,0 +1,43 @@
+[
+  {
+    "name": "English",
+    "img": "https://i.ibb.co/HX16c7B/english.jpg",
+    "price": "free ",
+    "title": "This is a course on (English) subject. I am teaching on (English) subject. You will understand this (English) subject very well if you take this service. I am providing services on many subjects, one of them is (English). And taking this service requires you to work hard. And there is no substitute for hard work."
+  },
+
+  {
+    "name": "Boilogy",
+    "img": "https://i.ibb.co/J7dpCV4/bology.jpg",
+    "price": " 500",
+    "title": "This is a course on Boilogy. I am teaching on (Boilogy) subject. You will understand this (Boilogy) very well if you take this service. I provide services on many topics, one of them is (Boilogy). And taking this service requires you to work hard. And there is no substitute for hard work."
+  },
+
+  {
+    "name": "Chemistry",
+    "img": "https://i.ibb.co/CPKymdM/chamstry.jpg",
+    "price": "1500 ",
+    "title": "This is a course on (Chemistry) subject. I am teaching on (Chemistry) subject. You will understand this (Chemistry) subject very well if you take this service. I am providing services on many subjects, one of them is (Chemistry). And taking this service requires you to work hard. And there is no substitute for hard work."
+  },
+
+  {
+    "name": "Math",
+    "img": "https://i.ibb.co/CJvBpKy/math.jpg",
+    "price": "free ",
+    "title": "This is a course on (Math) subject. I am teaching on (Math) subject. You will understand this (Math) subject very well if you take this service. I am providing services on many subjects, one of them is (Math). And taking this service requires you to work hard. And there is no substitute for hard work."
+  },
+
+  {
+    "name": "Spoken English ",
+    "img": "https://i.ibb.co/cXmHnFj/spiking-inglish.jpg",
+    "price": "1000 ",
+    "title": "This is a course on (HSpoken English) subject. I am teaching on (Spoken English) subject. You will understand this (Spoken English) subject very well if you take this service. I am providing services on many subjects, one of them is (Spoken English). And taking this service requires you to work hard. And there is no substitute for hard work."
+  },
+
+  {
+    "name": "history",
+    "img": "https://i.ibb.co/C1Y3GTh/histry.jpg",
+    "price": " 500",
+    "title": "This is (HISTORY BOOK CLASS 11) course on the subject. I am teaching on the subject (HISTORY BOOK CLASS 11). You will understand this (HISTORY BOOK CLASS 11) subject very well if you take this service. I am providing services on many subjects, one of them is (HISTORY BOOK CLASS 11). And taking this service requires you to work hard. And there is no substitute for hard work."
+  }
+]

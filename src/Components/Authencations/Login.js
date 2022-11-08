@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 import { AuthContext } from '../Context/Usercontext';
+import {FcGoogle} from 'react-icons/fc'
 
 const Login = () => {
 
-  const {signinemail} =useContext(AuthContext);
+  const {signinemail , signupgoogle} =useContext(AuthContext);
 
 
   const handellogin=event =>{
@@ -25,6 +26,14 @@ const Login = () => {
     })
 
   }
+  //google
+
+  const handelgoogle=()=>{
+    signupgoogle()
+    .then(res => {console.log(res.user);})
+    .catch(e => {console.log(e);})
+  }
+
 
   return (
     <div className="w-full max-w-md p-8 mx-auto my-6 shadow-lg shadow-blue-500/50  space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
@@ -69,12 +78,10 @@ const Login = () => {
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
       </div>
       <div className="flex justify-center space-x-4">
-        <button aria-label="Log in with Google" className="p-3 rounded-sm">
-          google
+        <button aria-label="Log in with Google" onClick={handelgoogle} className="p-3 text-4xl rounded-sm">
+          <FcGoogle className='hover:border-2 hover:rounded-sm'/>
         </button>
-        <button aria-label="Log in with Twitter" className="p-3 rounded-sm">
-          google
-        </button>
+        
       </div>
       <p className="text-xs text-center sm:px-6 dark:text-gray-400">
         Don't have an account?
