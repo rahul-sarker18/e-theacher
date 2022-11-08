@@ -1,15 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SearvicesCart = ({service}) => {
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
+
+const SearvicesCart = ({ service }) => {
   const { img, _id, name, title } = service;
   return (
     <div className="max-w-xs  my-6 rounded-md mx-auto  justify-center shadow-lg shadow-cyan-500/50  items-center 2xl:ml-10 lg:ml-10 xl:ml-10  dark:bg-gray-900 dark:text-gray-100">
-      <img
+      <PhotoProvider>
+        <PhotoView src={img}>
+          <img src={img} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
+        </PhotoView>
+      </PhotoProvider>
+
+      {/* <img
         src={img}
         alt=""
         className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500"
-      />
+      /> */}
       <div className="flex flex-col justify-between p-6 space-y-8">
         <div className="space-y-2">
           <h2 className="text-3xl font-semibold tracking-wide">{name}</h2>

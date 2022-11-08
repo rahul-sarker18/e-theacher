@@ -20,7 +20,7 @@ const Serv = () => {
 
       <div className="justify-center text-center  mx-auto shadow-lg  mb-24 items-center w-36">
         <Link  to="/services">
-          <button className="btn btn-secondary shadow-orange-800-500/50">All Services</button>
+          <button className="btn btn-secondary shadow-orange-800-500/50">see all</button>
         </Link>
       </div>
     </div>

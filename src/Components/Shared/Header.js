@@ -15,7 +15,8 @@ const Header = () => {
     <div className="navbar bg-base-300 p-4 rounded-xl  shadow-lg shadow-indigo-500/50  ">
       <div className="navbar-start">
         <Link to="/" className="btn btn-ghost normal-case text-xl">
-          daisyUI
+          <img src="https://i.ibb.co/FmHgBT1/eteacher-removebg-preview.png"  className="bg-white w-12 rounded-full" alt="" />
+          <h1>e-teacher</h1>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -27,9 +28,11 @@ const Header = () => {
           <li>
             <NavLink to="/services">Services</NavLink>
           </li>
-          <li>
-            <NavLink to="/revew">Revew</NavLink>
-          </li>
+          {user?.uid ? (
+            <li>
+              <NavLink to="/revew">My Revew</NavLink>
+            </li>
+          ) : undefined}
           <li>
             <NavLink to="/profile">Profile</NavLink>
           </li>
