@@ -112,7 +112,7 @@ const Deatlspage = () => {
 
       <div className="my-7">
         <h1 className="text-2xl items-center text-center font-bold ">
-          Service Review{" "}
+        You can Review
         </h1>
         <p className="w-4/5 mx-auto border border-rose-600"></p>
       </div>

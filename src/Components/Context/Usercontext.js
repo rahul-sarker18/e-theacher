@@ -14,7 +14,7 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const Usercontext = ({ children }) => {
-  const [user, setUser] = useState("Rahul");
+  const [user, setUser] = useState(null);
   const [loder, setloder] = useState(false);
 
   //email and pass sign up

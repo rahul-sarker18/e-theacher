@@ -30,7 +30,7 @@ const Header = () => {
           </li>
           {user?.uid ? (
             <li>
-              <NavLink to="/revew">My Revew</NavLink>
+              <NavLink to="/myreviews">My Review</NavLink>
             </li>
           ) : undefined}
           <li>
