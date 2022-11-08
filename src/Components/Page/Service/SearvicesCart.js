@@ -2,10 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SearvicesCart = ({service}) => {
-    console.log(service);
-    const {img , _id , name , title}= service;
-    return (
-        <div className="max-w-xs mx-auto my-6 rounded-md  justify-center shadow-lg shadow-cyan-500/50  items-center 2xl:ml-10 lg:ml-10 xl:ml-10  dark:bg-gray-900 dark:text-gray-100">
+  const { img, _id, name, title } = service;
+  return (
+    <div className="max-w-xs  my-6 rounded-md mx-auto  justify-center shadow-lg shadow-cyan-500/50  items-center 2xl:ml-10 lg:ml-10 xl:ml-10  dark:bg-gray-900 dark:text-gray-100">
       <img
         src={img}
         alt=""
@@ -19,16 +18,16 @@ const SearvicesCart = ({service}) => {
           </p>
         </div>
         <Link to={`/detels/${_id}`}>
-        <button
-          type="button"
-          className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-blue-400 dark:text-gray-900"
-        >
-          Read more
-        </button>
+          <button
+            type="button"
+            className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-blue-400 dark:text-gray-900"
+          >
+            Read more
+          </button>
         </Link>
       </div>
     </div>
-    );
+  );
 };
 
 export default SearvicesCart;
