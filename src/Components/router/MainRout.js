@@ -7,6 +7,7 @@ import Deatlspage from "../Page/Deatlspage/Deatlspage";
 import Home from "../Page/Home/Home";
 import Profile from "../Page/Profile/Profile";
 import Revew from "../Page/Revew/Revew";
+import RevowAdd from "../Page/Revew/RevowAdd/RevowAdd";
 import Searvices from "../Page/Service/Searvices";
 
 export const router = createBrowserRouter([
@@ -19,6 +20,8 @@ export const router = createBrowserRouter([
         {path:'/profile' , element:<Profile/>},
         {path:'/login' , element:<Login></Login>},
         {path:'/signup' , element:<Signup></Signup>},
+        
         {path:'/detels/:id' , element:<Deatlspage></Deatlspage> , loader: ({params})=>fetch(`http://localhost:5000/searvices/${params.id}`)},
+        {path:'/revewAdd/:id' , element:<RevowAdd></RevowAdd> },
     ]}
 ])

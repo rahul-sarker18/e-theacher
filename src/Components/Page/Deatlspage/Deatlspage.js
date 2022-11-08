@@ -6,8 +6,18 @@ const Deatlspage = () => {
 
   const { _id, name, img, title, price } = useLoaderData();
 
+
+const handelrevew = (id)=>{
+    console.log(id);
+
+}
+
+
+
+  
+
   return (
-    <div className="max-w-xs mx-auto my-14 rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
+    <div className="max-w-lg hadow-lg shadow-cyan-500/50 mx-auto my-14 rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
       <img
         src={img}
         alt=""
@@ -37,7 +47,8 @@ const Deatlspage = () => {
           <Link to={`/revewAdd/${_id}`}>
           <button
             type="button"
-            className="flex items-center justify-center w-1/2 p-3 font-semibold tracking-wide rounded-md dark:bg-blue-400 dark:text-gray-900"
+            onClick={()=> handelrevew(_id)}
+            className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-blue-400 dark:text-gray-900"
           >
             Revew
           </button>
