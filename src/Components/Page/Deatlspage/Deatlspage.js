@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
@@ -8,8 +8,17 @@ import { AuthContext } from "../../Context/Usercontext";
 const Deatlspage = () => {
   const { user } = useContext(AuthContext);
   const [rating, setrating] = useState(false);
-
+  const [reviewdata, setreviewdata] = useState([]);
   const { _id, name, img, title, price } = useLoaderData();
+
+  // post id in server
+  useEffect(() => {
+    fetch(`http://localhost:5000/review/?id=${_id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }, [_id]);
 
   // reviiew btn func
   const handelreview = (e) => {
@@ -18,23 +27,24 @@ const Deatlspage = () => {
     const text = e.target.text.value;
     const reviewDetls = {
       name,
-      email:user.email,
+      email: user.email,
       userImg: user.photoURL,
       img,
       text,
       id: _id,
     };
-    
-    fetch('http://localhost:5000/review', {
-        method:'POST',
-        headers:{
-            'content-type':'application/json',
-        },
-        body: JSON.stringify(reviewDetls),
-    }).then(res => res.json())
-    .then(data => {
-        console.log(data);
+
+    fetch("http://localhost:5000/review", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(reviewDetls),
     })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   return (
@@ -123,7 +133,7 @@ const Deatlspage = () => {
             className="textarea textarea-accent w-[350px]"
             placeholder="Bio"
           ></textarea>
-          <button  className={`btn btn-outline btn-secondary`}>Button</button>
+          <button className={`btn btn-outline btn-secondary`}>Button</button>
         </form>
       </div>
     </div>
