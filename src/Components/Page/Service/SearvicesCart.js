@@ -1,14 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const ServCart = ({ data }) => {
-  console.log(data);
-  const { name, img, _id, title } = data;
-  const litleleng = title.length;
-  console.log(litleleng);
-
-  return (
-    <div className="max-w-xs mx-auto rounded-md  justify-center shadow-lg shadow-cyan-500/50 my-3 items-center 2xl:ml-10 lg:ml-10 xl:ml-10  dark:bg-gray-900 dark:text-gray-100">
+const SearvicesCart = ({service}) => {
+    console.log(service);
+    const {img , _id , name , title}= service;
+    return (
+        <div className="max-w-xs mx-auto my-6 rounded-md  justify-center shadow-lg shadow-cyan-500/50  items-center 2xl:ml-10 lg:ml-10 xl:ml-10  dark:bg-gray-900 dark:text-gray-100">
       <img
         src={img}
         alt=""
@@ -31,7 +28,7 @@ const ServCart = ({ data }) => {
         </Link>
       </div>
     </div>
-  );
+    );
 };
 
-export default ServCart;
+export default SearvicesCart;

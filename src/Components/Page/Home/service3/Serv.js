@@ -12,7 +12,7 @@ const Serv = () => {
   }, []);
   return (
     <div className="my-6">
-      <div className="grid grid-cols-3 my-4 ">
+      <div className="justify-center  md:grid 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 gap-5 my-6">
         {api.map((ser) => (
           <ServCart key={ser._id} data={ser}></ServCart>
         ))}
