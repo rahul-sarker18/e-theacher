@@ -1,13 +1,41 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import { AuthContext } from "../../Context/Usercontext";
 
 const Deatlspage = () => {
+  const { user } = useContext(AuthContext);
   const [rating, setrating] = useState(false);
 
   const { _id, name, img, title, price } = useLoaderData();
+
+  // reviiew btn func
+  const handelreview = (e) => {
+    e.preventDefault();
+    console.log(e);
+    const text = e.target.text.value;
+    const reviewDetls = {
+      name,
+      email:user.email,
+      userImg: user.photoURL,
+      img,
+      text,
+      id: _id,
+    };
+    
+    fetch('http://localhost:5000/review', {
+        method:'POST',
+        headers:{
+            'content-type':'application/json',
+        },
+        body: JSON.stringify(reviewDetls),
+    }).then(res => res.json())
+    .then(data => {
+        console.log(data);
+    })
+  };
 
   return (
     <div>
@@ -53,7 +81,9 @@ const Deatlspage = () => {
       </div>
 
       <div className="my-7">
-        <h1 className="text-2xl items-center text-center font-bold ">Service Review </h1>
+        <h1 className="text-2xl items-center text-center font-bold ">
+          Service Review{" "}
+        </h1>
         <p className="w-4/5 mx-auto border border-rose-600"></p>
       </div>
 
@@ -76,22 +106,26 @@ const Deatlspage = () => {
       </section>
       {/* revew end */}
 
-
       <div className="my-7">
-        <h1 className="text-2xl items-center text-center font-bold ">Service Review </h1>
+        <h1 className="text-2xl items-center text-center font-bold ">
+          Service Review{" "}
+        </h1>
         <p className="w-4/5 mx-auto border border-rose-600"></p>
       </div>
       <div className="my-6">
-        <form className="justify-center items-center mx-auto w-2/3  flex">
+        <form
+          onSubmit={handelreview}
+          className="justify-center items-center mx-auto w-2/3  flex"
+        >
           <textarea
+            required
+            name="text"
             className="textarea textarea-accent w-[350px]"
             placeholder="Bio"
           ></textarea>
-          <button className="btn btn-outline btn-secondary">Button</button>
+          <button  className={`btn btn-outline btn-secondary`}>Button</button>
         </form>
       </div>
-
-     
     </div>
   );
 };
