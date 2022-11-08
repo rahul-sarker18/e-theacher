@@ -34,7 +34,7 @@ const Header = () => {
             <NavLink to="/profile">Profile</NavLink>
           </li>
           <li>
-            <NavLink to="/bolg">Blog</NavLink>
+            <NavLink to="/bolg">Blogs</NavLink>
           </li>
           {user?.uid ? (
             <li>
