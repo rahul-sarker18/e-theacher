@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from "../../../Context/Usercontext";
+import UseTitle from '../../../UseTitle/UseTitle';
 import ReviewCart from "./ReviewCart";
 
 const Myrevies = () => {
+  UseTitle('myreviews')
   const { user , signoutff } = useContext(AuthContext);
   const [myrev, setmyrev] = useState([]);
   const  [refr , setRefr] = useState(false)

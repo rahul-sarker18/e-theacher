@@ -1,6 +1,8 @@
 import React from 'react';
+import UseTitle from '../../UseTitle/UseTitle';
 
 const Bolage = () => {
+  UseTitle('blog')
     return (
       <section className="dark:bg-gray-800 dark:text-gray-100 rounded-lg">
         <div className="container flex flex-col justify-center px-4 my-8 py-8 mx-auto md:p-8">

@@ -4,8 +4,11 @@ import Baner from "./Baber/Baner";
 import Serv from "./service3/Serv";
 import {FiCornerLeftDown, FiCornerRightDown} from 'react-icons/fi'
 import Vegitor from '../Extrapage/Vegitor/Vegitor';
+import UseTitle from '../../UseTitle/UseTitle';
+import Priceing from '../Extrapage/Priceing/Priceing';
 
 const Home = () => {
+  UseTitle('home')
   return (
     <div>
       <Baner></Baner>
@@ -22,6 +25,13 @@ const Home = () => {
             <h1 className='text-3xl font-bold flex justify-center items-center gap-3'> <FiCornerLeftDown className='text-orange-400'/> Views <FiCornerRightDown className='text-orange-400'/></h1> 
         </div>
         <Vegitor></Vegitor>
+      </div>
+
+      <div className='mx-auto '>
+        <div className='text-center mb-5  mt-16 '>
+            <h1 className='text-3xl font-bold flex justify-center items-center gap-3'> <FiCornerLeftDown className='text-orange-400'/> The Right <FiCornerRightDown className='text-orange-400'/></h1> 
+        </div>
+        <Priceing></Priceing>
       </div>
 
 

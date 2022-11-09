@@ -1,8 +1,10 @@
 import React from "react";
 import toast from "react-hot-toast";
 import { Navigate, useNavigate } from "react-router-dom";
+import UseTitle from "../../UseTitle/UseTitle";
 
 const AddServices = () => {
+  UseTitle('addServices')
     const navegate = useNavigate()
   const handeladdservices = (e) => {
     e.preventDefault();

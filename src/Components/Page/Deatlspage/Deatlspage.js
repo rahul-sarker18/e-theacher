@@ -5,6 +5,7 @@ import "react-photo-view/dist/react-photo-view.css";
 import { AuthContext } from "../../Context/Usercontext";
 import Allreviews from "./Allreviews";
 import toast from "react-hot-toast";
+import UseTitle from "../../UseTitle/UseTitle";
 
 const Deatlspage = () => {
   const { user } = useContext(AuthContext);
@@ -12,7 +13,7 @@ const Deatlspage = () => {
   const [s, sets] = useState(false);
   const [reviewdata, setreviewdata] = useState([]);
   const { _id, name, img, title, price } = useLoaderData();
-
+UseTitle(`detels/${_id}`)
   // post id in server
   useEffect(() => {
     fetch(`http://localhost:5000/review/${_id}`)

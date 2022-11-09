@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import UseTitle from '../../UseTitle/UseTitle';
 import SearvicesCart from './SearvicesCart';
 
 const Searvices = () => {
+    UseTitle('services')
 
     const [api , setapi] = useState([]);
     useEffect(()=>{

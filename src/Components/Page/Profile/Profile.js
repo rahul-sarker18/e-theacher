@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../Context/Usercontext";
+import UseTitle from "../../UseTitle/UseTitle";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
+  UseTitle(`profilt/${user?.email}`)
   return (
     <div className="flex mx-auto my-14  shadow-lg shadow-cyan-500/60 flex-col justify-center max-w-xs p-6  rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
       <img

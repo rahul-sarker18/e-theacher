@@ -83,12 +83,39 @@ const Header = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <NavLink>Item 1</NavLink>
-            </li>
+            <NavLink to="/home">Home</NavLink>
+          </li>
 
+          <li>
+            <NavLink to="/services">Services</NavLink>
+          </li>
+          {user?.uid ? (
             <li>
-              <NavLink>Item 3</NavLink>
+              <NavLink to="/myreviews">My Review</NavLink>
             </li>
+          ) : undefined}
+          <li>
+            <NavLink to="/addServices">Add Services</NavLink>
+          </li>
+          <li>
+            <NavLink to="/bolg">Blogs</NavLink>
+          </li>
+          {user?.uid ? (
+            <li>
+              <button onClick={handelsignout} type="link">
+                Sign out
+              </button>
+            </li>
+          ) : (
+            <>
+              <li>
+                <NavLink to="/login">Log in</NavLink>
+              </li>
+              <li>
+                <NavLink to="/signup">Sign up</NavLink>
+              </li>
+            </>
+          )}
           </ul>
         </div>
 

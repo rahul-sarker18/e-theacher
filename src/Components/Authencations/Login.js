@@ -2,8 +2,11 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/Usercontext";
 import { FcGoogle } from "react-icons/fc";
+import UseTitle from '../UseTitle/UseTitle';
 
 const Login = () => {
+UseTitle('login')
+
   const { signinemail, signupgoogle } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();

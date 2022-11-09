@@ -3,8 +3,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import {updateProfile} from "firebase/auth"
 import { AuthContext } from "../Context/Usercontext";
 import { FcGoogle } from "react-icons/fc";
+import UseTitle from "../UseTitle/UseTitle";
 
 const Sgnup = () => {
+  UseTitle('signup')
   const {auth , signupEmail , signupgoogle} = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
