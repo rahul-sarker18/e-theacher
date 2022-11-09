@@ -1,11 +1,11 @@
 import React from "react";
+import { AiFillEdit, AiOutlineDelete } from "react-icons/ai";
 
-const ReviewCart = ({ review }) => {
-  console.log(review);
-
+const ReviewCart = ({ review, handeldelet, handeledit ,handeleditId}) => {
   const { name, userImg, text, _id, date } = review;
+
   return (
-    <div >
+    <div>
       <section className="dark:bg-gray-800  dark:text-gray-100">
         <div className="container  2xl:text-left lg:text-left xl:text-left text-center mx-auto flex flex-col justify-center px-4 py-8  md:p-8">
           <div className="divide-y divide-gray-700  ">
@@ -31,11 +31,47 @@ const ReviewCart = ({ review }) => {
                 </h1>
               </div>
               <div className="2xl:block xl:block lg:block mx-0 flex md:ml-60 justify-center gap-4">
-                <button className="btn btn-primary 2xl:block xl:block lg:block my-2">
-                  Button
-                </button>
-                <button className="btn btn-secondary 2xl:block xl:block lg:block my-2">
-                  Button
+                {/* mpdal s */}
+                <div>
+                  <label
+                    htmlFor="my-modal-4"
+                    onClick={()=>handeleditId(_id)}
+                    className="btn btn-primary 2xl:block xl:block lg:block my-2"
+                  >
+                    <h1 className="flex gap-3 mt-3">
+                      <AiFillEdit /> edit review
+                    </h1>
+                  </label>
+
+                  <input
+                    type="checkbox"
+                    id="my-modal-4"
+                    className="modal-toggle"
+                  />
+                  <label htmlFor="my-modal-4" className="modal cursor-pointer">
+                    <label className="modal-box relative" htmlFor="">
+                      <form onSubmit={handeledit}>
+                        <input
+                          type="text"
+                          name="text"
+                          placeholder="Type here"
+                          className="input input-bordered input-secondary w-full max-w-xs"
+                        />
+                        <button className="btn btn-secondary">Submite</button>
+                      </form>
+                    </label>
+                  </label>
+                </div>
+                {/* mpdal e */}
+
+                <button
+                  onClick={() => handeldelet(_id)}
+                  className="btn btn-secondary  2xl:block xl:block lg:block my-2"
+                >
+                  <h1 className="flex gap-3">
+                    <AiOutlineDelete />
+                    delete
+                  </h1>
                 </button>
               </div>
             </div>
