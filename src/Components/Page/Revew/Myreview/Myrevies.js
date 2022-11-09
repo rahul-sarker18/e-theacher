@@ -1,21 +1,31 @@
 import React, { useContext, useEffect, useState } from 'react';
-import toast, { Toaster } from "react-hot-toast";
+import toast from 'react-hot-toast';
 import { AuthContext } from "../../../Context/Usercontext";
 import ReviewCart from "./ReviewCart";
 
 const Myrevies = () => {
-  const { user } = useContext(AuthContext);
+  const { user , signoutff } = useContext(AuthContext);
   const [myrev, setmyrev] = useState([]);
   const  [refr , setRefr] = useState(false)
   const [ides , setides] = useState('');
 
   useEffect(() => {
-    fetch(`http://localhost:5000/review?email=${user?.email}`)
-      .then((res) => res.json())
+    
+    fetch(`http://localhost:5000/review?email=${user?.email}` , {
+      headers:{
+        authorizitan: `Baerer ${localStorage.getItem('token')}`
+      }
+    })
+      .then((res) => {
+        if(res.status === 401 || res.status === 403){
+          return signoutff()
+        }
+      return res.json()})
+
       .then((data) => {
         setmyrev(data);
       });
-  }, [user?.email , refr]);
+  }, [user?.email , refr ,signoutff]);
 
   //handeldelet
   const handeldelet = (id) => {
@@ -34,8 +44,7 @@ const Myrevies = () => {
             const remaining = myrev.filter((d) => d._id !== id);
             setmyrev(remaining);
             return toast.success("Delete completed successfully!!");
-          }
-          console.log(data);
+          };
         });
     }
   };
@@ -63,12 +72,9 @@ const Myrevies = () => {
        return toast.success( 'Update completed successfully!!')
       
       }
-      console.log(data);
     })
 
   };
-
-
 
   return (
     <div>

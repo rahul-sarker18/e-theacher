@@ -1,48 +1,66 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from '../Context/Usercontext';
-import {FcGoogle} from 'react-icons/fc'
+import { AuthContext } from "../Context/Usercontext";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-  const {signinemail , signupgoogle} =useContext(AuthContext);
- const location = useLocation();
- const navigate = useNavigate();
- const  from = location.state?.from?.pathname || "/";
+  const { signinemail, signupgoogle } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
-  const handellogin=event =>{
+  const handellogin = (event) => {
     event.preventDefault();
-    const form =event.target;
+    const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email , password);
+    console.log(email, password);
 
-    signinemail(email , password)
-    .then(res => {
-      
-       navigate(from, { replace: true });
-      form.reset();
-    })
-    .catch(e => {
-      console.error(e);
-    })
+    signinemail(email, password)
+      .then((res) => {
+        const user = res.user;
+        console.log(user.email);
 
-  }
+        fetch(`http://localhost:5000/jwt`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ email: user.email }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("token", data.token);
+            console.log(data);
+          });
+
+        navigate(from, { replace: true });
+        form.reset();
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+  };
   //google
 
-  const handelgoogle=()=>{
+  const handelgoogle = () => {
     signupgoogle()
-    .then(res => {
-       navigate(from, { replace: true });
-      ;})
+      .then((res) => {
+        navigate(from, { replace: true });
+      })
 
-    .catch(e => {console.log(e);})
-  }
-
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
   return (
     <div className="w-full max-w-md p-8 mx-auto my-6 shadow-lg shadow-blue-500/50  space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
       <h1 className="text-2xl font-bold text-center">Log in</h1>
-      <form onSubmit={handellogin} className="space-y-6 ng-untouched ng-pristine ng-valid">
+      <form
+        onSubmit={handellogin}
+        className="space-y-6 ng-untouched ng-pristine ng-valid"
+      >
         <div className="space-y-1 text-sm">
           <label htmlFor="email" className="block dark:text-gray-400">
             Email
@@ -82,10 +100,13 @@ const Login = () => {
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
       </div>
       <div className="flex justify-center space-x-4">
-        <button aria-label="Log in with Google" onClick={handelgoogle} className="p-3 text-4xl rounded-sm">
-          <FcGoogle className='hover:border-2 hover:rounded-sm'/>
+        <button
+          aria-label="Log in with Google"
+          onClick={handelgoogle}
+          className="p-3 text-4xl rounded-sm"
+        >
+          <FcGoogle className="hover:border-2 hover:rounded-sm" />
         </button>
-        
       </div>
       <p className="text-xs text-center sm:px-6 dark:text-gray-400">
         Don't have an account?

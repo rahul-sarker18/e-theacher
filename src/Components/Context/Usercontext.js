@@ -29,12 +29,16 @@ const Usercontext = ({ children }) => {
   };
   //sign out
   const signoutff =()=>{
+    localStorage.removeItem('token')
+    setloder(true)
     return signOut(auth)
   }
 
   //siign up google
 const provider = new GoogleAuthProvider();
   const signupgoogle=()=>{
+    
+    setloder(true)
     return signInWithPopup(auth , provider)
 
   }

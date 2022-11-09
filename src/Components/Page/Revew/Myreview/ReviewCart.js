@@ -1,9 +1,9 @@
 import React from "react";
 import { AiFillEdit, AiOutlineDelete } from "react-icons/ai";
 
-const ReviewCart = ({ review, handeldelet, handeledit ,handeleditId}) => {
-  const { name, userImg, text, _id, date } = review;
 
+const ReviewCart = ({ review, handeldelet, handeledit, handeleditId }) => {
+  const { name, userImg, text, _id, date } = review;
   return (
     <div>
       <section className="dark:bg-gray-800  dark:text-gray-100">
@@ -35,7 +35,7 @@ const ReviewCart = ({ review, handeldelet, handeledit ,handeleditId}) => {
                 <div>
                   <label
                     htmlFor="my-modal-4"
-                    onClick={()=>handeleditId(_id)}
+                    onClick={() => handeleditId(_id)}
                     className="btn btn-primary 2xl:block xl:block lg:block my-2"
                   >
                     <h1 className="flex gap-3 mt-3">
