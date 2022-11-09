@@ -34,7 +34,7 @@ const Header = () => {
             </li>
           ) : undefined}
           <li>
-            <NavLink to="/profile">Profile</NavLink>
+            <NavLink to="/addServices">Add Services</NavLink>
           </li>
           <li>
             <NavLink to="/bolg">Blogs</NavLink>

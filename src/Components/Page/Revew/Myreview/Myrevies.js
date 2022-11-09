@@ -38,19 +38,7 @@ const Myrevies = () => {
         });
     }
   };
-  //
-  // fetch(`http://localhost:5000/review/${id}`, {
-  //   method: "PUT",
-  //   headers: {
-  //     "content-type": "application/json",
-  //   },
-  //   body: JSON.stringify()
-  // })
-  //   .then((res) => res.json())
-  //   .then(data => {
-  //     console.log(data);
-  //   })
-
+ 
   const handeleditId=(id)=>{
     setides(id)
   }
