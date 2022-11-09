@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from "../../../Context/Usercontext";
 import ReviewCart from "./ReviewCart";
 
 const Myrevies = () => {
   const { user } = useContext(AuthContext);
   const [myrev, setmyrev] = useState([]);
+  const  [refr , setRefr] = useState(false)
   const [ides , setides] = useState('');
 
   useEffect(() => {
@@ -14,7 +15,7 @@ const Myrevies = () => {
       .then((data) => {
         setmyrev(data);
       });
-  }, [user?.email]);
+  }, [user?.email , refr]);
 
   //handeldelet
   const handeldelet = (id) => {
@@ -47,10 +48,6 @@ const Myrevies = () => {
   const handeledit = ( event ) => {
     event.preventDefault();
     const text = event.target.text.value;
-    // const id = ides;
-    // console.log(id);
- 
-  
      fetch(`http://localhost:5000/review/${ides}`, {
     method: "PUT",
     headers: {
@@ -60,6 +57,12 @@ const Myrevies = () => {
   })
     .then((res) => res.json())
     .then(data => {
+      if(data.matchedCount){
+        setRefr(true)
+        event.target.reset()
+       return toast.success( 'Update completed successfully!!')
+      
+      }
       console.log(data);
     })
 

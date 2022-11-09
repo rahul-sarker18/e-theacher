@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import Login from "../Authencations/Login";
 import Signup from "../Authencations/Sgnup";
+import Error from "../Error/Error";
 import AddServices from "../Page/AddServices/AddServices";
 import Bolage from "../Page/Bolage/Bolage";
 import Deatlspage from "../Page/Deatlspage/Deatlspage";
@@ -10,6 +11,7 @@ import Profile from "../Page/Profile/Profile";
 import Myrevies from "../Page/Revew/Myreview/Myrevies";
 
 import Searvices from "../Page/Service/Searvices";
+import PrivateRout from "./PrivateRout";
 
 export const router = createBrowserRouter([
   {
@@ -24,7 +26,7 @@ export const router = createBrowserRouter([
       { path: "/login", element: <Login></Login> },
       { path: "/signup", element: <Signup></Signup> },
       { path: "/myreviews", element: <Myrevies/> },
-      { path: "/addServices", element: <AddServices/> },
+      { path: "/addServices", element:<PrivateRout> <AddServices/></PrivateRout> },
 
       {
         path: "/detels/:id",
@@ -34,4 +36,5 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {path:'*', element:<Error></Error>}
 ]);

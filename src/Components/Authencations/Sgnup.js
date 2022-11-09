@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {updateProfile} from "firebase/auth"
 import { AuthContext } from "../Context/Usercontext";
 import { FcGoogle } from "react-icons/fc";
 
 const Sgnup = () => {
   const {auth , signupEmail , signupgoogle} = useContext(AuthContext);
-
+  const location = useLocation();
+  const navigate = useNavigate();
+  const  from = location.state?.from?.pathname || "/";
 
 //sign up email and password fild
   const handelsignup=(event)=>{
@@ -20,9 +22,11 @@ const Sgnup = () => {
     .then(res =>{
       const user = res.user;
       console.log(user);
+      
       updateProfile(auth.currentUser, {
         displayName: name , photoURL: "https://i.ibb.co/ZJnwZhP/no.png"
       })
+      navigate(from, { replace: true });
       form.reset()
     })
     .catch(e => {console.error(e)})
@@ -32,7 +36,9 @@ const Sgnup = () => {
 
    const handelgoogle=()=>{
     signupgoogle()
-    .then(res => {console.log(res.user);})
+    .then(res => {
+      navigate(from, { replace: true });
+      console.log(res.user);})
     .catch(e => {console.log(e);})
   }
 

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { AuthContext } from "../../Context/Usercontext";
@@ -112,7 +112,7 @@ const Deatlspage = () => {
 
       <div className="my-7">
         <h1 className="text-2xl items-center text-center font-bold ">
-        You can Review
+          You can Review
         </h1>
         <p className="w-4/5 mx-auto border border-rose-600"></p>
       </div>
@@ -125,9 +125,20 @@ const Deatlspage = () => {
             required
             name="text"
             className="textarea textarea-accent w-[350px]"
-            placeholder="Bio"
+            placeholder="review text"
           ></textarea>
-          <button className={`btn btn-outline btn-secondary`}>Button</button>
+
+          {user?.uid ? (
+            <button className={`btn btn-outline btn-secondary`}>
+              add review
+            </button>
+          ) : (
+            <Link to="/login">
+              <button className={`btn btn-outline btn-secondary`}>
+                add review
+              </button>
+            </Link>
+          )}
         </form>
       </div>
     </div>
