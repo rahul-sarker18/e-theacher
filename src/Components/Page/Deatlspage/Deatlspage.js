@@ -20,6 +20,7 @@ UseTitle(`detels/${_id}`)
       .then((res) => res.json())
       .then((data) => {
         setreviewdata(data);
+        sets();
       });
   }, [_id, s ]);
 
