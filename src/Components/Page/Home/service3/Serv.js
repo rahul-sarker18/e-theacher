@@ -6,7 +6,7 @@ import ServCart from "./ServCart";
 const Serv = () => {
   const [api, setapi] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/searvices?lemet=3`)
+    fetch(`https://server-11-rahul-sarker18.vercel.app/searvices?lemet=3`)
       .then((res) => res.json())
       .then((data) => setapi(data));
   }, []);

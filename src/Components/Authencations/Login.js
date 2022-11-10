@@ -24,7 +24,7 @@ UseTitle('login')
         const user = res.user;
         console.log(user.email);
 
-        fetch(`http://localhost:5000/jwt`, {
+        fetch(`https://server-11-rahul-sarker18.vercel.app/jwt`, {
           method: "POST",
           headers: {
             "content-type": "application/json",

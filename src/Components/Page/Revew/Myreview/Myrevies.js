@@ -13,7 +13,7 @@ const Myrevies = () => {
 
   useEffect(() => {
     
-    fetch(`http://localhost:5000/review?email=${user?.email}` , {
+    fetch(`https://server-11-rahul-sarker18.vercel.app/review?email=${user?.email}` , {
       headers:{
         authorizitan: `Baerer ${localStorage.getItem('token')}`
       }
@@ -34,7 +34,7 @@ const Myrevies = () => {
     const confirm = window.confirm("Do you really want to delete it?");
 
     if (confirm) {
-      fetch(`http://localhost:5000/review/${id}`, {
+      fetch(`https://server-11-rahul-sarker18.vercel.app/review/${id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",
@@ -59,7 +59,7 @@ const Myrevies = () => {
   const handeledit = ( event ) => {
     event.preventDefault();
     const text = event.target.text.value;
-     fetch(`http://localhost:5000/review/${ides}`, {
+     fetch(`https://server-11-rahul-sarker18.vercel.app/review/${ides}`, {
     method: "PUT",
     headers: {
       "content-type": "application/json",

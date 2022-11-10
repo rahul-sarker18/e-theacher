@@ -7,7 +7,7 @@ const Searvices = () => {
 
     const [api , setapi] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/searvices').then(res => res.json())
+        fetch('https://server-11-rahul-sarker18.vercel.app/searvices').then(res => res.json())
         .then(data => setapi(data))
     },[])
    

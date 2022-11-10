@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
         path: "/detels/:id",
         element: <Deatlspage></Deatlspage>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/searvices/${params.id}`),
+          fetch(`https://server-11-rahul-sarker18.vercel.app/searvices/${params.id}`),
       },
     ],
   },
