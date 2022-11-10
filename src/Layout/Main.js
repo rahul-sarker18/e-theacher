@@ -5,7 +5,7 @@ import Header from "../Components/Shared/Header";
 import UseTitle from "../Components/UseTitle/UseTitle";
 
 const Main = () => {
-  UseTitle('')
+  UseTitle('home')
   return (
     <div>
       <Header></Header>

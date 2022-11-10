@@ -49,6 +49,20 @@ UseTitle('login')
   const handelgoogle = () => {
     signupgoogle()
       .then((res) => {
+        const user = res.user;
+        fetch(`https://server-11-rahul-sarker18.vercel.app/jwt`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ email: user.email }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("token", data.token);
+            console.log(data);
+          });
+
         navigate(from, { replace: true });
       })
 
@@ -69,6 +83,7 @@ UseTitle('login')
             Email
           </label>
           <input
+          required
             type="email"
             name="name"
             id="email"
@@ -81,6 +96,7 @@ UseTitle('login')
             Password
           </label>
           <input
+          required
             type="password"
             name="password"
             id="password"

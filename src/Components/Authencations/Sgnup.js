@@ -24,6 +24,19 @@ const Sgnup = () => {
     .then(res =>{
       const user = res.user;
       console.log(user);
+      fetch(`https://server-11-rahul-sarker18.vercel.app/jwt`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ email: user.email }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("token", data.token);
+            console.log(data);
+          });
+
       
       updateProfile(auth.currentUser, {
         displayName: name , photoURL: "https://i.ibb.co/ZJnwZhP/no.png"
@@ -39,6 +52,20 @@ const Sgnup = () => {
    const handelgoogle=()=>{
     signupgoogle()
     .then(res => {
+      const user = res.user;
+      fetch(`https://server-11-rahul-sarker18.vercel.app/jwt`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ email: user.email }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("token", data.token);
+            console.log(data);
+          });
+
       navigate(from, { replace: true });
       console.log(res.user);})
     .catch(e => {console.log(e);})
@@ -53,6 +80,7 @@ const Sgnup = () => {
             Name
           </label>
           <input
+           required
             type="text"
             name="name"
             id="username"
@@ -65,6 +93,7 @@ const Sgnup = () => {
             Email
           </label>
           <input
+           required
             type="email"
             name="email"
             id="email"
@@ -77,6 +106,7 @@ const Sgnup = () => {
             Password
           </label>
           <input
+           required
             type="password"
             name="password"
             id="password"
@@ -99,9 +129,7 @@ const Sgnup = () => {
       <button aria-label="Log in with Google" onClick={handelgoogle} className="p-3 text-4xl rounded-sm">
           <FcGoogle className='hover:border-2 hover:rounded-sm'/>
         </button>
-        <button aria-label="Log in with Twitter" className="p-3 rounded-sm">
-          google
-        </button>
+       
       </div>
       <p className="text-xs text-center sm:px-6 dark:text-gray-400">
         Have an account?

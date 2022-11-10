@@ -21,7 +21,7 @@ UseTitle(`detels/${_id}`)
       .then((data) => {
         setreviewdata(data);
       });
-  }, [_id, s]);
+  }, [_id, s ]);
 
   // reviiew btn func
   const handelreview = (e) => {
@@ -47,6 +47,7 @@ UseTitle(`detels/${_id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
+          sets(true);
           e.target.reset();
           return toast.success("Thanks for the Review!");
         }
