@@ -6,7 +6,7 @@ import { AuthContext } from "../../Context/Usercontext";
 import UseTitle from "../../UseTitle/UseTitle";
 
 const AddServices = () => {
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   UseTitle("addServices");
   const navigate = useNavigate();
 
@@ -26,10 +26,10 @@ const AddServices = () => {
 
     const price = data.price;
     const title = data.title;
-    
+
     const formData = new FormData();
     formData.append("image", img);
-    const url = `https://api.imgbb.com/1/upload?expiration=600&key=${apikey}`;
+    const url = `https://api.imgbb.com/1/upload?key=${apikey}`;
 
     fetch(url, {
       method: "POST",
@@ -47,7 +47,7 @@ const AddServices = () => {
           title,
         };
         if (imageData.success) {
-          fetch("https://server-11-rahul-sarker18.vercel.app/searvices", {
+          fetch("http://localhost:5000/searvices", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -82,7 +82,7 @@ const AddServices = () => {
   //     title,
   //   };
 
-  //   // fetch("https://server-11-rahul-sarker18.vercel.app/searvices", {
+  //   // fetch("http://localhost:5000/searvices", {
   //   //   method: "POST",
   //   //   headers: {
   //   //     "content-type": "application/json",

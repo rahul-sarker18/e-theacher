@@ -13,18 +13,18 @@ const Sgnup = () => {
   const  from = location.state?.from?.pathname || "/";
 
 //sign up email and password fild
-  const handelsignup=(event)=>{
+  const handelsignup = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-   
-    signupEmail(email , password)
-    .then(res =>{
-      const user = res.user;
-     
-      fetch(`https://server-11-rahul-sarker18.vercel.app/jwt`, {
+
+    signupEmail(email, password)
+      .then((res) => {
+        const user = res.user;
+
+        fetch(`http://localhost:5000/jwt`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -34,26 +34,27 @@ const Sgnup = () => {
           .then((res) => res.json())
           .then((data) => {
             localStorage.setItem("token", data.token);
-           
           });
 
-      
-      updateProfile(auth.currentUser, {
-        displayName: name , photoURL: "https://i.ibb.co/ZJnwZhP/no.png"
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: "https://i.ibb.co/ZJnwZhP/no.png",
+        });
+        navigate(from, { replace: true });
+        form.reset();
       })
-      navigate(from, { replace: true });
-      form.reset()
-    })
-    .catch(e => {console.error(e)})
-  }
+      .catch((e) => {
+        console.error(e);
+      });
+  };
 
-   //google
+  //google
 
-   const handelgoogle=()=>{
+  const handelgoogle = () => {
     signupgoogle()
-    .then(res => {
-      const user = res.user;
-      fetch(`https://server-11-rahul-sarker18.vercel.app/jwt`, {
+      .then((res) => {
+        const user = res.user;
+        fetch(`http://localhost:5000/jwt`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -63,13 +64,14 @@ const Sgnup = () => {
           .then((res) => res.json())
           .then((data) => {
             localStorage.setItem("token", data.token);
-           
           });
 
-      navigate(from, { replace: true });
-     })
-    .catch(e => {console.log(e);})
-  }
+        navigate(from, { replace: true });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
   return (
     <div className="w-full max-w-md p-8 mx-auto my-6 shadow-lg shadow-blue-500/50  space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">

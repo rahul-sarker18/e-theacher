@@ -17,14 +17,12 @@ UseTitle('login')
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    
 
     signinemail(email, password)
       .then((res) => {
         const user = res.user;
-        
 
-        fetch(`https://server-11-rahul-sarker18.vercel.app/jwt`, {
+        fetch(`http://localhost:5000/jwt`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -34,7 +32,6 @@ UseTitle('login')
           .then((res) => res.json())
           .then((data) => {
             localStorage.setItem("token", data.token);
-            
           });
 
         navigate(from, { replace: true });
@@ -50,7 +47,7 @@ UseTitle('login')
     signupgoogle()
       .then((res) => {
         const user = res.user;
-        fetch(`https://server-11-rahul-sarker18.vercel.app/jwt`, {
+        fetch(`http://localhost:5000/jwt`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -60,15 +57,12 @@ UseTitle('login')
           .then((res) => res.json())
           .then((data) => {
             localStorage.setItem("token", data.token);
-           
           });
 
         navigate(from, { replace: true });
       })
 
-      .catch((e) => {
-       
-      });
+      .catch((e) => {});
   };
 
   return (

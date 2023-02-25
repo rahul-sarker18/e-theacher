@@ -16,13 +16,13 @@ const Deatlspage = () => {
 UseTitle(`detels/${_id}`)
   // post id in server
   useEffect(() => {
-    fetch(`https://server-11-rahul-sarker18.vercel.app/review/${_id}`)
+    fetch(`http://localhost:5000/review/${_id}`)
       .then((res) => res.json())
       .then((data) => {
         setreviewdata(data);
         sets();
       });
-  }, [_id, s ]);
+  }, [_id, s]);
 
   // reviiew btn func
   const handelreview = (e) => {
@@ -38,7 +38,7 @@ UseTitle(`detels/${_id}`)
       id: _id,
     };
 
-    fetch("https://server-11-rahul-sarker18.vercel.app/review", {
+    fetch("http://localhost:5000/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

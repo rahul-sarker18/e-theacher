@@ -7,6 +7,7 @@ import AddServices from "../Page/AddServices/AddServices";
 import Bolage from "../Page/Bolage/Bolage";
 import Deatlspage from "../Page/Deatlspage/Deatlspage";
 import Home from "../Page/Home/Home";
+import MyPost from "../Page/MyPost/MyPost";
 import Profile from "../Page/Profile/Profile";
 import Myrevies from "../Page/Revew/Myreview/Myrevies";
 
@@ -25,16 +26,33 @@ export const router = createBrowserRouter([
       { path: "/profile", element: <Profile /> },
       { path: "/login", element: <Login></Login> },
       { path: "/signup", element: <Signup></Signup> },
-      { path: "/myreviews", element: <Myrevies/> },
-      { path: "/addServices", element:<PrivateRout> <AddServices/></PrivateRout> },
+      { path: "/myreviews", element: <Myrevies /> },
+      {
+        path: "/addServices",
+        element: (
+          <PrivateRout>
+            {" "}
+            <AddServices />
+          </PrivateRout>
+        ),
+      },
+      {
+        path: "/mypost",
+        element: (
+          <PrivateRout>
+            {" "}
+            <MyPost />
+          </PrivateRout>
+        ),
+      },
 
       {
         path: "/detels/:id",
         element: <Deatlspage></Deatlspage>,
         loader: ({ params }) =>
-          fetch(`https://server-11-rahul-sarker18.vercel.app/searvices/${params.id}`),
+          fetch(`http://localhost:5000/searvices/${params.id}`),
       },
     ],
   },
-  {path:'*', element:<Error></Error>}
+  { path: "*", element: <Error></Error> },
 ]);
