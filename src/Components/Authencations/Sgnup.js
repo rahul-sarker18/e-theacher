@@ -23,7 +23,7 @@ const Sgnup = () => {
     signupEmail(email , password)
     .then(res =>{
       const user = res.user;
-      console.log(user);
+     
       fetch(`https://server-11-rahul-sarker18.vercel.app/jwt`, {
           method: "POST",
           headers: {
@@ -34,7 +34,7 @@ const Sgnup = () => {
           .then((res) => res.json())
           .then((data) => {
             localStorage.setItem("token", data.token);
-            console.log(data);
+           
           });
 
       
@@ -63,11 +63,11 @@ const Sgnup = () => {
           .then((res) => res.json())
           .then((data) => {
             localStorage.setItem("token", data.token);
-            console.log(data);
+           
           });
 
       navigate(from, { replace: true });
-      console.log(res.user);})
+     })
     .catch(e => {console.log(e);})
   }
 

@@ -11,7 +11,7 @@ const Myrevies = () => {
   const [myrev, setmyrev] = useState([]);
   const [refr, setRefr] = useState(false);
   const [ides, setides] = useState("");
-  console.log("my", typeof myrev);
+ 
 
   useEffect(() => {
     fetch(

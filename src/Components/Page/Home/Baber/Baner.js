@@ -2,9 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Baner = () => {
+ 
+
+
   return (
     <div
-      className="hero min-h-screen my-6"
+      className="hero min-h-[600px] my-6"
       style={{ backgroundImage: `url("https://i.ibb.co/tbB2vW2/tea.jpg")` }}
     >
       <div className="hero-overlay bg-opacity-60"></div>

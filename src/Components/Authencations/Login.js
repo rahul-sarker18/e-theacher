@@ -17,12 +17,12 @@ UseTitle('login')
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    
 
     signinemail(email, password)
       .then((res) => {
         const user = res.user;
-        console.log(user.email);
+        
 
         fetch(`https://server-11-rahul-sarker18.vercel.app/jwt`, {
           method: "POST",
@@ -34,7 +34,7 @@ UseTitle('login')
           .then((res) => res.json())
           .then((data) => {
             localStorage.setItem("token", data.token);
-            console.log(data);
+            
           });
 
         navigate(from, { replace: true });
@@ -60,14 +60,14 @@ UseTitle('login')
           .then((res) => res.json())
           .then((data) => {
             localStorage.setItem("token", data.token);
-            console.log(data);
+           
           });
 
         navigate(from, { replace: true });
       })
 
       .catch((e) => {
-        console.log(e);
+       
       });
   };
 
