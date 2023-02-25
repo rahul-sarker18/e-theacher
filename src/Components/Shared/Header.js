@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Context/Usercontext";
+import {GiHamburgerMenu} from 'react-icons/gi'
 
 const Header = () => {
   const { user, signoutff } = useContext(AuthContext);
@@ -33,6 +34,11 @@ const Header = () => {
               <NavLink to="/myreviews">My Review</NavLink>
             </li>
           ) : undefined}
+          {user?.uid ? (
+            <li>
+              <NavLink to="/mypost">My Post</NavLink>
+            </li>
+          ) : undefined}
           <li>
             <NavLink to="/addServices">Add Services</NavLink>
           </li>
@@ -63,20 +69,8 @@ const Header = () => {
       <div className="navbar-end gap-4">
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
+            
+            <GiHamburgerMenu  className="h-5 w-5"/>
           </label>
           <ul
             tabIndex={0}
@@ -92,6 +86,10 @@ const Header = () => {
           {user?.uid ? (
             <li>
               <NavLink to="/myreviews">My Review</NavLink>
+            </li>
+          ) : undefined} {user?.uid ? (
+            <li>
+              <NavLink to="/mypost">My Post</NavLink>
             </li>
           ) : undefined}
           <li>

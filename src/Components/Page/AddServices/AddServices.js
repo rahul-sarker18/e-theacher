@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Context/Usercontext";
 import UseTitle from "../../UseTitle/UseTitle";
 
 const AddServices = () => {
+  const {user} = useContext(AuthContext)
   UseTitle("addServices");
   const navigate = useNavigate();
+
+  console.log(user.email);
 
   const {
     register,
@@ -22,7 +26,7 @@ const AddServices = () => {
 
     const price = data.price;
     const title = data.title;
-   
+    
     const formData = new FormData();
     formData.append("image", img);
     const url = `https://api.imgbb.com/1/upload?expiration=600&key=${apikey}`;
@@ -39,6 +43,7 @@ const AddServices = () => {
           name,
           img: uu,
           price,
+          email: user.email,
           title,
         };
         if (imageData.success) {
@@ -96,8 +101,8 @@ const AddServices = () => {
 
   return (
     <div>
-      <div className="w-full max-w-md p-8 mx-auto my-6 shadow-lg shadow-blue-500/50  space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
-        <h1 className="text-2xl font-bold text-center">AddServices</h1>
+      <div className="w-full max-w-md p-8 mb-4 mx-auto my-6 shadow-lg shadow-blue-500/50  space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
+        <h1 className="text-2xl font-bold text-center">Add Services</h1>
         <form
           onSubmit={handleSubmit(handeladdservices)}
           className="space-y-6 ng-untouched ng-pristine ng-valid"
