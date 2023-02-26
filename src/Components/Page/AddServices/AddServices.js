@@ -101,14 +101,14 @@ const AddServices = () => {
 
   return (
     <div>
-      <div className="w-full max-w-md p-8 mb-4 mx-auto my-6 shadow-lg shadow-blue-500/50  space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
+      <div className="w-full max-w-md p-8 mb-4 mx-auto my-6 shadow-lg shadow-blue-500/50  space-y-3 rounded-xl bg-gray-900 text-gray-100">
         <h1 className="text-2xl font-bold text-center">Add Services</h1>
         <form
           onSubmit={handleSubmit(handeladdservices)}
           className="space-y-6 ng-untouched ng-pristine ng-valid"
         >
           <div className="space-y-1 text-sm">
-            <label htmlFor="name" className="block dark:text-gray-400">
+            <label htmlFor="name" className="block text-gray-400">
               name *
             </label>
             <input
@@ -124,7 +124,7 @@ const AddServices = () => {
           </div>
 
           <div className="space-y-1 text-sm">
-            <label htmlFor="imglink" className="block dark:text-gray-400">
+            <label htmlFor="imglink" className="block text-gray-400">
               Upolde Img *
             </label>
 
@@ -140,7 +140,7 @@ const AddServices = () => {
             )}
           </div>
           <div className="space-y-1 text-sm">
-            <label htmlFor="price" className="block dark:text-gray-400">
+            <label htmlFor="price" className="block text-gray-400">
               Price *
             </label>
             <input
@@ -155,7 +155,7 @@ const AddServices = () => {
             )}
           </div>
           <div className="space-y-1 text-sm">
-            <label htmlFor="texaria" className="block dark:text-gray-400">
+            <label htmlFor="texaria" className="block text-gray-400">
               Title *
             </label>
 

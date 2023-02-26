@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const Error = () => {
   return (
     <div className="mt-10">
-      <section className="flex items-center h-full sm:p-16 dark:bg-gray-900 dark:text-gray-100">
+      <section className="flex items-center h-full sm:p-16 bg-gray-900 text-gray-100">
         <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8 space-y-8 text-center sm:max-w-md">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
-            className="w-40 h-40 dark:text-gray-600"
+            className="w-40 h-40 text-gray-600"
           >
             <path
               fill="currentColor"
@@ -36,8 +36,8 @@ const Error = () => {
           </p>
           <Link
             rel="noopener noreferrer"
-            to='/'
-            className="px-8 py-3 font-semibold rounded dark:bg-blue-400 dark:text-gray-900"
+            to="/"
+            className="px-8 py-3 font-semibold rounded bg-blue-400 text-gray-900"
           >
             Back to homepage
           </Link>

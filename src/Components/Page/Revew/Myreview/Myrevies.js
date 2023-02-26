@@ -92,7 +92,7 @@ const Myrevies = () => {
         ))}
 
         {myrev.length === 0 && (
-          <h2 className='text-red-700 text-center text-2xl'>
+          <h2 className='text-red-700 text-center text-2xl my-16'>
             No Items for Review. Please: <Link to="/services" className='text-lime-300'>add more..</Link>
           </h2>
         )}

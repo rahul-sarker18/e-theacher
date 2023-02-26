@@ -4,7 +4,7 @@ import UseTitle from '../../UseTitle/UseTitle';
 const Bolage = () => {
   UseTitle('blog')
     return (
-      <section className="dark:bg-gray-800 dark:text-gray-100 rounded-lg">
+      <section className="bg-gray-800 text-gray-100 rounded-lg">
         <div className="container flex flex-col justify-center px-4 my-8 py-8 mx-auto md:p-8">
           <h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">
             Frequently Asked Questions
@@ -36,7 +36,7 @@ const Bolage = () => {
             </div>
             <div className="py-6 space-y-2  gap-8 md:space-y-0">
               <h3 className="font-semibold my-3 text-2xl text-center">
-               * What is the difference between javascript and Node JS?
+                * What is the difference between javascript and Node JS?
               </h3>
               <p className="md:pl-0 md:col-span-7">
                 JavaScript is a simple programming language that can be used
@@ -47,10 +47,15 @@ const Bolage = () => {
             </div>
             <div className="py-6 space-y-2  gap-8 ">
               <h3 className="font-semibold my-3 text-2xl text-center">
-               * How does Node JS handle multiple requests at the same time?
+                * How does Node JS handle multiple requests at the same time?
               </h3>
               <p className="md:pl-0 md:col-span-7">
-              We know NodeJS application is single-threaded. Say, if processing involves request A that takes 10 seconds, it does not mean that a request which comes after this request needs to wait 10 seconds to start processing because NodeJS event loops are only single-threaded. The entire NodeJS architecture is not single-threaded. 
+                We know NodeJS application is single-threaded. Say, if
+                processing involves request A that takes 10 seconds, it does not
+                mean that a request which comes after this request needs to wait
+                10 seconds to start processing because NodeJS event loops are
+                only single-threaded. The entire NodeJS architecture is not
+                single-threaded.
               </p>
             </div>
           </div>

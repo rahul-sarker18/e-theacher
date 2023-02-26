@@ -7,7 +7,7 @@ const Searvices = () => {
 
     const [api , setapi] = useState([]);
     useEffect(()=>{
-        fetch("http://localhost:5000/searvices")
+        fetch("http://localhost:5000/searvicess")
           .then((res) => res.json())
           .then((data) => setapi(data));
     },[])
