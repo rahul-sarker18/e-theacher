@@ -7,20 +7,27 @@ const Searvices = () => {
 
     const [api , setapi] = useState([]);
  
-    const [page, setPage] = useState(1);
-    const count = api.length;
+    const [size, setSize] = useState(6);
+    const [page, setPage] = useState(0);
+    const [count, setcount] = useState(1);
+
     const pages = Math.ceil(count / 6);
 
     useEffect(() => {
-      fetch("http://localhost:5000/searvicess")
+      fetch(`http://localhost:5000/searvicess?page=${page}&size=${size}`)
         .then((res) => res.json())
-        .then((data) => setapi(data));
-    }, []);
+        .then((data) => {
+          setapi(data.product)
+          setcount(data.count)
+          console.log(data);
+        });
+    }, [page , size]);
 
+   
     return (
       <div>
         <div className=" justify-center  md:grid 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 gap-5 my-6">
-          {api.map((ser) => (
+          {api?.map((ser) => (
             <SearvicesCart service={ser} key={ser._id}></SearvicesCart>
           ))}
         </div>
@@ -47,18 +54,18 @@ const Searvices = () => {
 
             {[...Array(pages)].map((countNumber, i) => (
               <button
-              onClick={()=>setPage(i+1)}
+              onClick={()=>setPage(i)}
                 type="button"
                 className="inline-flex items-center justify-center w-8 h-8 text-sm border rounded shadow-md bg-gray-900 border-gray-800"
-                title={`page ${i + 1}`}
+                title={`page ${i }`}
               >
                 <span
                   className={
-                    page === i + 1 &&
+                    page === i  &&
                     "text-width bg-red-900 inline-flex items-center justify-center w-8 h-8 text-sm border rounded shadow-md bg-gray-900 border-gray-800"
                   }
                 >
-                  {i + 1}
+                  {i}
                 </span>
               </button>
             ))}
