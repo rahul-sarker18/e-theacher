@@ -16,7 +16,7 @@ const Deatlspage = () => {
 UseTitle(`detels/${_id}`)
   // post id in server
   useEffect(() => {
-    fetch(`http://localhost:5000/review/${_id}`)
+    fetch(`https://e-theacher-server.vercel.app/review/${_id}`)
       .then((res) => res.json())
       .then((data) => {
         setreviewdata(data);
@@ -38,7 +38,7 @@ UseTitle(`detels/${_id}`)
       id: _id,
     };
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://e-theacher-server.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

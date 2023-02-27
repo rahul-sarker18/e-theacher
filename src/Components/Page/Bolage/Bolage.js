@@ -12,7 +12,7 @@ const Bolage = () => {
           <div className="divide-y divide-gray-700">
             <div className="py-6 space-y-2 gap-8 md:space-y-0">
               <h3 className="font-semiboldmy-3 text-2xl text-center">
-                Difference between sql and nosql..
+                * Difference between sql and nosql..
               </h3>
               <p className="md:pl-0 md:col-span-7">
                 When it comes to choosing a database the biggest decisions is
@@ -24,7 +24,7 @@ const Bolage = () => {
             </div>
             <div className="py-6 space-y-2 gap-8 md:space-y-0">
               <h3 className="font-semibold my-3 text-2xl text-center">
-                What is JWT, and how does it work?
+              *  What is JWT, and how does it work?
               </h3>
               <p className="md:pl-0 md:col-span-7">
                 JWT are digitally signed using either a secret (HMAC) or a

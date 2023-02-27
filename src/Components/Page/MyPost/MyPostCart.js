@@ -2,7 +2,7 @@ import React from 'react';
 import { AiFillEdit, AiOutlineDelete } from 'react-icons/ai';
 
 const MyPostCart = ({post , handeldelet}) => {
-  console.log(post);
+ 
   const {img, price , name , email , _id} = post
     return (
         <div>

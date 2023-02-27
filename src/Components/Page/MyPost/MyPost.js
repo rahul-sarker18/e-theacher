@@ -8,21 +8,26 @@ import MyPostCart from "./MyPostCart";
 const MyPost = () => {
     const {user} = useContext(AuthContext)
     const email = user.email
-  const { data = [], isLoading ,refetch } = useQuery({
+  const {
+    data = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: [],
     queryFn: async () => {
-      const result = await fetch(`http://localhost:5000/mypost/?email=${email}`);
+      const result = await fetch(
+        `https://e-theacher-server.vercel.app/mypost/?email=${email}`
+      );
       const data = await result.json();
       return data;
     },
   });
-  const handeldelet =(id)=>{
+  const handeldelet = (id) => {
     const confirm = window.confirm("Do you really want to delete it?");
-    if(confirm){
-
+    if (confirm) {
     }
     if (confirm) {
-      fetch(`http://localhost:5000/delete/${id}`, {
+      fetch(`https://e-theacher-server.vercel.app/delete/${id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",
@@ -31,13 +36,12 @@ const MyPost = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount) {
-            refetch()
+            refetch();
             return toast.success("Delete completed successfully!!");
           }
         });
     }
-
-  }
+  };
   return <div>{
     data.map(post => <MyPostCart key={post._id} post ={post} handeldelet ={handeldelet}></MyPostCart>)}
     {data.length === 0 && (

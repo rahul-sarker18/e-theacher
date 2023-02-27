@@ -24,7 +24,7 @@ const Sgnup = () => {
       .then((res) => {
         const user = res.user;
 
-        fetch(`http://localhost:5000/jwt`, {
+        fetch(`https://e-theacher-server.vercel.app/jwt`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -54,7 +54,7 @@ const Sgnup = () => {
     signupgoogle()
       .then((res) => {
         const user = res?.user;
-        fetch(`http://localhost:5000/jwt`, {
+        fetch(`https://e-theacher-server.vercel.app/jwt`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -69,7 +69,7 @@ const Sgnup = () => {
         navigate(from, { replace: true });
       })
       .catch((e) => {
-        console.log(e);
+      
       });
   };
 

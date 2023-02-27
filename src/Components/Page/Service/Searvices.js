@@ -14,12 +14,13 @@ const Searvices = () => {
     const pages = Math.ceil(count / 6);
 
     useEffect(() => {
-      fetch(`http://localhost:5000/searvicess?page=${page}&size=${size}`)
+      fetch(
+        `https://e-theacher-server.vercel.app/searvicess?page=${page}&size=${size}`
+      )
         .then((res) => res.json())
         .then((data) => {
-          setapi(data.product)
-          setcount(data.count)
-          console.log(data);
+          setapi(data.product);
+          setcount(data.count);
         });
     }, [page , size]);
 

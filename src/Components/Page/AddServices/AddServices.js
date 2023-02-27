@@ -10,8 +10,6 @@ const AddServices = () => {
   UseTitle("addServices");
   const navigate = useNavigate();
 
-  console.log(user.email);
-
   const {
     register,
     handleSubmit,
@@ -38,7 +36,7 @@ const AddServices = () => {
       .then((res) => res.json())
       .then((imageData) => {
         const uu = imageData.data.url;
-        console.log(imageData);
+
         const items = {
           name,
           img: uu,
@@ -47,7 +45,7 @@ const AddServices = () => {
           title,
         };
         if (imageData.success) {
-          fetch("http://localhost:5000/searvices", {
+          fetch("https://e-theacher-server.vercel.app/searvices", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -73,7 +71,7 @@ const AddServices = () => {
   //   const price = form.price.value;
   //   const title = form.title.value;
 
-  //   console.log("image", imgurl);
+  //   "image", imgurl);
 
   //   const items = {
   //     name,
@@ -82,7 +80,7 @@ const AddServices = () => {
   //     title,
   //   };
 
-  //   // fetch("http://localhost:5000/searvices", {
+  //   // fetch("https://e-theacher-server.vercel.app/searvices", {
   //   //   method: "POST",
   //   //   headers: {
   //   //     "content-type": "application/json",

@@ -48,7 +48,7 @@ export const router = createBrowserRouter([
         path: "/detels/:id",
         element: <Deatlspage></Deatlspage>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/searvices/${params.id}`),
+          fetch(`https://e-theacher-server.vercel.app/searvices/${params.id}`),
       },
     ],
   },
