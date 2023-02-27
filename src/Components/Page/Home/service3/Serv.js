@@ -21,7 +21,7 @@ const Serv = () => {
       {api.length === 0 ? undefined : (
         <div className="justify-center text-center  mx-auto shadow-lg  mb-24 items-center w-36">
           <Link to="/services">
-            <button className="btn btn-secondary shadow-orange-800-500/50  w-36">
+            <button className="btn btn-primary  shadow-orange-800-500/50  w-36 shadow-lg shadow-cyan-500/50">
               see all
             </button>
           </Link>

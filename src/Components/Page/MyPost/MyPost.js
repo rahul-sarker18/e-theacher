@@ -46,7 +46,7 @@ const MyPost = () => {
     data.map(post => <MyPostCart key={post._id} post ={post} handeldelet ={handeldelet}></MyPostCart>)}
     {data.length === 0 && (
           <h2 className='text-red-700 text-center text-2xl my-16'>
-            No Items for Post. Please: <Link to="/services" className='text-lime-300'>add more..</Link>
+            No Items for Post. Please: <Link to="/addServices" className='text-lime-300'>add more..</Link>
           </h2>
         )}
     </div>;
