@@ -1,5 +1,5 @@
 # websitename : e-theacher
-# LiveLink : https://eleven-cfa1a.web.app/
+# LiveLink : https://e-teacher-1.web.app/
 
 # The features used in my website are:
 * You can login with email and google.
@@ -8,3 +8,4 @@
 * You can edit your reviews and can delete.
 * If you are not logged in, you will be taken to the login page.
 * Dynamic title .
+* pagination
